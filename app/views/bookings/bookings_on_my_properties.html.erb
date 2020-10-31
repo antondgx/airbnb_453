@@ -1,9 +1,13 @@
+<h1> All bookings on my apartments </h1>
+<%= link_to "Back to listings", properties_path %>
+<br>
+<br>
+
 <% @my_properties.each do |property| %>
-  <h4> <%= property.title %> </h4>
-  <% property.bookings.each do |booking| %>
-    <p> Renter: </p>
-    <p> contact </p>
-    <p> Paid: <%= booking.price %> </p>
-    <hr>
-  <% end %>
+    <h4> <%= property.title %> </h4>
+    <% property.bookings.each do |booking| %>
+      <p> Renter's email: <%= booking.user.email %> </p>
+      <p> Paid: <%= booking.price %> </p>
+    <% end %>
+  <hr>
 <% end %>

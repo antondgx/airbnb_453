@@ -7,7 +7,6 @@
   <h3> <%= booking.property.title %> </h3>
   <p> From <%= booking.start_date %> to <%= booking.end_date %> </p>
   <p> Price: <%= booking.price %> </p>
-  <p> Owner: </p>
-  <p> Contact: </p>
+  <p> Owner's email: <%= booking.user.email %> </p>
   <hr>
 <% end %>
