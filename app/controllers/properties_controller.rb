@@ -15,8 +15,11 @@ class PropertiesController < ApplicationController
     @property = Property.new(property_params)
     @user = User.find(current_user.id)
     @property.user = @user
-    @property.save
-    redirect_to property_path(@property)
+    if @property.save
+      redirect_to property_path(@property)
+    else
+      render :new
+    end
   end
 
   def edit

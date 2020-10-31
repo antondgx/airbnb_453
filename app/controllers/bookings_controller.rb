@@ -5,6 +5,11 @@ class BookingsController < ApplicationController
     @bookings = current_user.bookings
   end
 
+  # owner action
+  def bookings_on_my_properties
+    @my_properties = current_user.properties
+  end
+
   # renter action
   def create
     @booking = Booking.new(booking_params)
@@ -20,7 +25,7 @@ class BookingsController < ApplicationController
     end
   end
 
-  # owner action
+  # renter action
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
@@ -32,6 +37,3 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:start_date, :end_date)
   end
 end
-
-  # resources :bookings, only:[:new, :create, :destroy]
-  # get "/bookings", to: "bookings#renter_details"
