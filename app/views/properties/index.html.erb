@@ -1,0 +1,8 @@
+<%= link_to  "CreateProperty", new_property_path %>
+<% @properties.each do |property| %>
+   <%= property.title %>
+   <%= property.description %>
+   <%= property.price %>
+   <%= property.address %>
+   <%= property.capacity %>
+<% end %>
