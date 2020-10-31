@@ -1,0 +1,11 @@
+
+
+<p>Title: <%= @property.title %></p>
+<p>Description: <%= @property.description %>
+<p>Address: <%= @property.address %>
+<p>Price: <%= @property.price %>
+<p>Capacity: <%= @property.capacity %>
+
+<%= link_to  "Edit", edit_property_path %>
+<%= link_to  "Delete", property_path(@property), method: :delete, data: {confirm: 'Are you sure?'} %>
+
