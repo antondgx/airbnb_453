@@ -19,7 +19,7 @@ property = Property.new(
   address: Faker::Address.full_address,
   price: rand(50..100),
   capacity: rand(1..4),
-  user_id: 1
+  user_id: rand(1..3)
 )
 property.save
 puts "Created #{property.title}"
