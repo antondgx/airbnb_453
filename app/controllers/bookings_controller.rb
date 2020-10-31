@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @booking.property = @property
 
     if @booking.save
-      redirect_to property_path(@property)
+      redirect_to my_bookings_path
     else
       render :new
     end
