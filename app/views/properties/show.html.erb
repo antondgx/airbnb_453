@@ -1,15 +1,15 @@
+<h1> <%= @property.title %> </h1>
 
-
-<p>Title: <%= @property.title %></p>
 <p>Description: <%= @property.description %>
 <p>Address: <%= @property.address %>
 <p>Price: <%= @property.price %>
 <p>Capacity: <%= @property.capacity %>
 
 <%= link_to  "Edit", edit_property_path %>
+<br>
 <%= link_to  "Delete", property_path(@property), method: :delete, data: {confirm: 'Are you sure?'} %>
 
-<h3>Book!</h3>
+<h5>Book!</h5>
 <%= simple_form_for [@property, Booking.new] do |f| %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
