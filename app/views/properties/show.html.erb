@@ -4,12 +4,14 @@
 <p>Address: <%= @property.address %>
 <p>Price: <%= @property.price %>
 <p>Capacity: <%= @property.capacity %>
-
+<br>
 <%= link_to  "Edit", edit_property_path %>
 <br>
 <%= link_to  "Delete", property_path(@property), method: :delete, data: {confirm: 'Are you sure?'} %>
 
-<h5>Book!</h5>
+<hr>
+
+<h4> Book! </h4>
 <%= simple_form_for [@property, Booking.new] do |f| %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
