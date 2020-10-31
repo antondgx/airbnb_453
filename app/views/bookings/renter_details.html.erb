@@ -1,3 +1,8 @@
+<h1> All my bookings (I'm a renter) </h1>
+<%= link_to "Back to listings" , properties_path %>
+
+<hr>
+
 <% @bookings.each do |booking| %>
   <h3> <%= booking.property.title %> </h3>
   <p> From <%= booking.start_date %> to <%= booking.end_date %> </p>

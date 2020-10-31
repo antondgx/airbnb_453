@@ -1,14 +1,14 @@
 <h1> <%= @property.title %> </h1>
 
-<p>Description: <%= @property.description %>
-<p>Address: <%= @property.address %>
-<p>Price: <%= @property.price %>
-<p>Capacity: <%= @property.capacity %>
-<br>
+<p> Description: <%= @property.description %> </p>
+<p> Address: <%= @property.address %> </p>
+<p> Price: <%= @property.price %> </p>
+<p> Capacity: <%= @property.capacity %> </p>
 <%= link_to  "Edit", edit_property_path %>
 <br>
 <%= link_to  "Delete", property_path(@property), method: :delete, data: {confirm: 'Are you sure?'} %>
-
+<br>
+<%= link_to "Back to listings", properties_path %>
 <hr>
 
 <h4> Book! </h4>

@@ -1,6 +1,6 @@
 <h1> All Properties </h1>
 
-<%= link_to "My bookings (Renter's perspective)", bookings_path %>
+<%= link_to "My bookings (If i'm a renter)", bookings_path %>
 
 <hr>
 
@@ -14,7 +14,7 @@
     <p> Price: <%= property.price %> </p>
     <p> Address: <%= property.address %> </p>
     <p> Capacity: <%= property.capacity %> </p>
-    <p> <%= link_to "Show", property_path(property) %> </p>
+    <p> <%= link_to "Show this apartment", property_path(property) %> </p>
     <hr>
 <% end %>
 

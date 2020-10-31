@@ -1,9 +1,6 @@
 class BookingsController < ApplicationController
 
-
-
-  # owner action
-
+  # renter action
   def renter_details
     @bookings = current_user.bookings
   end
@@ -17,7 +14,7 @@ class BookingsController < ApplicationController
     @booking.property = @property
 
     if @booking.save
-      redirect_to properties_path
+      redirect_to property_path(@property)
     else
       render :new
     end
