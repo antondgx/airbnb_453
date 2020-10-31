@@ -15,9 +15,10 @@
 <body>
 
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-    <a class="navbar-brand" href="#">
-      <%= image_tag "Airbnb-logo.png" %>
-    </a>
+
+    <%= link_to root_path, class: 'navbar-brand' do %>
+      <%= image_tag "Airbnb-logo.png", width: 50 %>
+    <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
