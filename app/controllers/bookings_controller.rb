@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
   # renter action
-  def renter_details
+  def my_bookings
     @bookings = current_user.bookings
   end
 

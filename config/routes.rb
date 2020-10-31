@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     resources :bookings, only:[:new, :create, :destroy]
   end
 
-  get "/bookings", to: "bookings#renter_details"
+  get "/bookings", to: "bookings#my_bookings", as: :my_bookings
 
 end
