@@ -1,0 +1,13 @@
+<%= simple_form_for [@property, Booking.new] do |f| %>
+  <%= f.input :start_time %>
+  <%= f.input :end_time %>
+  <%= f.input :price %>
+  <%= f.input :property_id, as: :hidden, html_input: { value: @property.id } %>
+  <%= f.submit %>
+<% end %>
+
+property/:id/booking/new
+
+post booking create
+
+<!-- :user_id, :property_id, :start_time, :end_time, :price) -->
