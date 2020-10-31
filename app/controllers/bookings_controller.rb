@@ -1,18 +1,23 @@
 class BookingsController < ApplicationController
 
-  # owner action
-  def renter_details
 
+
+  # owner action
+
+  def renter_details
+    @bookings = current_user.bookings
   end
 
   # renter action
   def create
-    @booking.new(booking_params)
+    @booking = Booking.new(booking_params)
     @booking.user = current_user
-    @property =
-    @booking.property =
+    @property = Property.find(params[:property_id])
+    @booking.price = @property.price
+    @booking.property = @property
+
     if @booking.save
-      redirect_to bookings
+      redirect_to properties_path
     else
       render :new
     end
@@ -27,7 +32,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time, :price)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end
 

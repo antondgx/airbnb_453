@@ -1,6 +1,7 @@
 class PropertiesController < ApplicationController
   def index
     @properties = Property.all
+    @bookings = current_user.bookings
   end
 
   def show

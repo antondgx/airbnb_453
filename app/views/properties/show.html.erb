@@ -9,3 +9,10 @@
 <%= link_to  "Edit", edit_property_path %>
 <%= link_to  "Delete", property_path(@property), method: :delete, data: {confirm: 'Are you sure?'} %>
 
+<h3>Book!</h3>
+<%= simple_form_for [@property, Booking.new] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :property, as: :hidden, html_input: { value: @property} %>
+  <%= f.submit %>
+<% end %>
