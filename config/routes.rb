@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  devise_for :users
+  root to: 'properties#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :properties do
+    resources :bookings, only:[:new, :create, :destroy]
+  end
+ 
+  get "/bookings", to: "bookings#renter_details"
+
 end
