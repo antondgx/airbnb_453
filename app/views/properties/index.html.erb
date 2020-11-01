@@ -12,6 +12,9 @@
 
 <% @properties.each do |property| %>
     <h4> <%= property.title %> </h4>
+    <% property.photos.each do |photo|  %>
+       <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <%end%>
     <p> Description: <%= property.description %> </p>
     <p> Price: <%= property.price %> </p>
     <p> Address: <%= property.address %> </p>
