@@ -1,8 +1,25 @@
-<%= link_to  "CreateProperty", new_property_path %>
+<h1> All Apartment listings </h1>
+
+<%= link_to "My bookings (I'm a renter)", my_bookings_path %>
+<br>
+<%= link_to "Bookings on my apartments (I'm a owner)", bookings_on_my_properties_path %>
+
+<hr>
+
+<h4> <%= link_to  "Create new apartment", new_property_path %> </h4>
+
+<hr>
+
 <% @properties.each do |property| %>
-   <%= property.title %>
-   <%= property.description %>
-   <%= property.price %>
-   <%= property.address %>
-   <%= property.capacity %>
+    <h4> <%= property.title %> </h4>
+    <p> Description: <%= property.description %> </p>
+    <p> Price: <%= property.price %> </p>
+    <p> Address: <%= property.address %> </p>
+    <p> Capacity: <%= property.capacity %> </p>
+    <p> <%= link_to "Show this apartment", property_path(property) %> </p>
+    <hr>
 <% end %>
+
+
+
+
