@@ -10,16 +10,22 @@
 
 <hr>
 
-<% @properties.each do |property| %>
-    <h4> <%= property.title %> </h4>
-    <p> Description: <%= property.description %> </p>
-    <p> Price: <%= property.price %> </p>
-    <p> Address: <%= property.address %> </p>
-    <p> Capacity: <%= property.capacity %> </p>
-    <p> <%= link_to "Show this apartment", property_path(property) %> </p>
-    <hr>
-<% end %>
+<div class="card" style="width: 18rem;">
 
+  <% @properties.each do |property| %>
+    <h4> <%= property.title %> </h4>
+    <% property.photos.each do |photo|  %>
+        <%= cl_image_tag photo.key, class: "card-img-top" %>
+    <% end %>
+      <div class="card-body">
+        <h5 class="card-title">Description: <%= property.description %></h5>
+        <p class="card-text">Price: <%= property.price %></p>
+        <p class="card-text">Address: <%= property.address %> </p>
+        <p class="card-text">Capacity: <%= property.capacity %></p>
+        <%= link_to "Show this apartment", property_path(property), class: 'btn btn-primary' %></a>
+     </div>
+  <% end %>
+</div>
 
 
 
