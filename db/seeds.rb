@@ -13,16 +13,16 @@ Booking.destroy_all
 
 puts "Creating properties..."
 20.times do
-property = Property.new(
-  title: Faker::Address.street_name,
-  description: Faker::Lorem.paragraphs(number: 1).first,
-  address: Faker::Address.full_address,
-  price: rand(50..100),
-  capacity: rand(1..4),
-  user_id: rand(1..3)
-)
-property.save
-puts "Created #{property.title}"
+  property = Property.new(
+    title: Faker::Address.street_name,
+    description: Faker::Lorem.paragraphs(number: 1).first,
+    address: Faker::Address.full_address,
+    price: rand(50..100),
+    capacity: rand(1..4),
+    user_id: rand(1..3)
+  )
+  property.save
+  puts "Created #{property.title}"
 end
 puts "Finished!"
 
