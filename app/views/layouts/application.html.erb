@@ -26,7 +26,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Sign in </a>
+          <a class="nav-link" href="#"> Sign in </a>
         </li>
         <li class="nav-item active">
         </li>
@@ -41,33 +41,72 @@
     </div>
   </div>
 
-  <div class="container">
-    <%= yield %>
+ <!--  <div class="container">
+    <%#= yield %>
     <div class="card" style="width: 18rem;">
-      <%= image_tag "airbnb.jpeg", class: "card-img-top" %>
+      <%#= image_tag "airbnb.jpeg", class: "card-img-top" %>
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
-  </div>
+  </div> -->
 
-
-  <div class="footer">
-    <div class="container">
-      <div class="footer-links">
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-
+  <div class="container">
+    <div class="d-flex flex-wrap">
+      <div class="m-4">
+        <div class="card" style="width: 18rem">
+          <%= image_tag "airbnb.jpeg", class: "card-img-top" %>
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
       </div>
-      <div class="footer-copyright">
-        This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+      <div class="m-4">
+        <div class="card" style="width: 18rem">
+          <%= image_tag "airbnb.jpeg", class: "card-img-top" %>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      </div>
+       <div class="m-4">
+        <div class="card" style="width: 18rem">
+          <%= image_tag "airbnb.jpeg", class: "card-img-top" %>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</body>
-</html>
+
+
+    <div class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+
+        </div>
+        <div class="footer-copyright">
+          This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>
