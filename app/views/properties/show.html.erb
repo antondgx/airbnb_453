@@ -18,7 +18,7 @@
       for this bootstrap component to work. See application.js where we add active to the first element -->
     <% @property.photos.each do |photo| %>
       <div class= "carousel-item">
-        <%= cl_image_tag photo.key, height: 450, crop: :fill%>
+        <%= cl_image_tag photo.key, height: 450, crop: :fill, :class => "d-block w-100" %>
       </div>
     <%end%>
 
