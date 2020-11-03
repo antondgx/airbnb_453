@@ -15,9 +15,10 @@
 <body>
 
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-    <a class="navbar-brand" href="#">
-      <%= image_tag "Airbnb-logo.png" %>
-    </a>
+
+    <%= link_to root_path, class: 'navbar-brand' do %>
+      <%= image_tag "Airbnb-logo.png", width: 50 %>
+    <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -26,14 +27,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#"> Sign in </a>
-        </li>
+
+          <% if user_signed_in? %>
+            <%= current_user.email %>
+          <% else %>
+            <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
+          <% end %>
+
         <li class="nav-item active">
         </li>
         <li class="nav-item dropdown">
           <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#"><%= link_to 'disconnect', destroy_user_session_path, method: 'delete' %></a>
             <a class="dropdown-item" href="#">Another action</a>
           </div>
         </li>
