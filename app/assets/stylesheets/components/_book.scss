@@ -1,0 +1,43 @@
+.book {
+  position: relative;
+  overflow: hidden;
+  height: 320px;
+  width: 400px;
+  background: white;
+  padding: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+
+.book h4 {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.book .new_booking {
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  padding: 16px 8px;
+}
+
+.book input {
+  border: none;
+  background-color: $blue;
+  color: white;
+  opacity: 0.9;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  position: absolute;
+  padding: 8px;
+  bottom: 24px;
+  right: 16px;
+  left: 16px;
+  border-radius: 4px;
+}
+
+.book input:hover {
+  opacity: 1;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}

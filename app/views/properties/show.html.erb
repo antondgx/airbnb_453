@@ -14,10 +14,12 @@
 <%= link_to "Back to listings", properties_path %>
 <hr>
 
-<h4> Book! </h4>
-<%= simple_form_for [@property, Booking.new] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :property, as: :hidden, html_input: { value: @property} %>
-  <%= f.submit %>
-<% end %>
+<div class="book">
+  <h4> Book! </h4>
+  <%= simple_form_for [@property, Booking.new] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :property, as: :hidden, html_input: { value: @property} %>
+    <%= f.submit %>
+  <% end %>
+</div>
