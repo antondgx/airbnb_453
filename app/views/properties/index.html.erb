@@ -1,4 +1,4 @@
-<h1> All Apartment listings </h1>
+<h1> All Apartment listings </h1> -->
 
 <%= link_to "My bookings (I'm a renter)", my_bookings_path %>
 <br>
@@ -8,24 +8,25 @@
 
 <h4> <%= link_to  "Create new apartment", new_property_path %> </h4>
 
-<hr>
+<hr> -->
 
-<div class="card" style="width: 18rem;">
 
-  <% @properties.each do |property| %>
-    <h4> <%= property.title %> </h4>
-    <% property.photos.each do |photo|  %>
-        <%= cl_image_tag photo.key, class: "card-img-top" %>
-    <% end %>
-      <div class="card-body">
-        <h5 class="card-title">Description: <%= property.description %></h5>
-        <p class="card-text">Price: <%= property.price %></p>
-        <p class="card-text">Address: <%= property.address %> </p>
-        <p class="card-text">Capacity: <%= property.capacity %></p>
-        <%= link_to "Show this apartment", property_path(property), class: 'btn btn-primary' %></a>
-     </div>
-  <% end %>
+
+<div class="m-4">
+      <div class="card" style="width: 18rem">
+        <% @properties.each do |property| %>
+        <h4> <%= property.title %> </h4>
+              <% property.photos.each do |photo|  %>
+              <%= cl_image_tag photo.key, class: "card-img-top" %>
+             <% end %>
+        <div class="card-body">
+          <h5 class="card-title"> Description: <%= property.description %></h5>
+          <p class="card-text">Price: <%= property.price %></p>
+          <p class="card-text">Address: <%= property.address %> </p>
+          <p class="card-text">Capacity: <%= property.capacity %></p>
+          <%= link_to "Show this apartment", property_path(property), class: 'btn btn-primary' %></a>
+        </div>
+        <% end %>
+      </div>
 </div>
-
-
 
