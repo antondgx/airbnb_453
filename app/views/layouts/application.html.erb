@@ -37,17 +37,19 @@
         <li class="nav-item dropdown">
           <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#"><%= link_to 'disconnect', destroy_user_session_path, method: 'delete' %></a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <% if user_signed_in? %>
+             <a class="dropdown-item" href="#"><%= link_to 'Logout', destroy_user_session_path, method: 'delete' %></a>
+             <a class="dropdown-item" href="#"><%= link_to 'MyProperties', bookings_on_my_properties_path %> </a>
+             <a class="dropdown-item" href="#"><%= link_to 'MyBookings', my_bookings_path %> </a>
+            <% end %>
           </div>
         </li>
       </ul>
     </div>
   </div>
 
-  <div class="container">
+  <div class="container" style="padding: 60px;">
     <%= yield %>
-
   </div>
 
 
@@ -59,10 +61,9 @@
         <a href="#"><i class="fab fa-facebook"></i></a>
         <a href="#"><i class="fab fa-twitter"></i></a>
         <a href="#"><i class="fab fa-linkedin"></i></a>
-
       </div>
       <div class="footer-copyright">
-        This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+        @2020 Airbnb <i class="fas fa-heart"></i> by Le Wagon SG 453 Batch
       </div>
     </div>
   </div>
