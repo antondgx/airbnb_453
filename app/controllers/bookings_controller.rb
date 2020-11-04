@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   # renter action
   def my_bookings
     @bookings = current_user.bookings
@@ -29,6 +28,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
+    redirect_to my_bookings_path
   end
 
   private
