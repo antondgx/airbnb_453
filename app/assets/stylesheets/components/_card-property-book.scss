@@ -1,0 +1,38 @@
+.card-property-book {
+  height: 320px;
+  width: 400px;
+  background: $light-gray;
+  padding: 16px;
+}
+
+.card-property-book h4 {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-property-book .new_booking {
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  padding: 16px 8px;
+}
+
+.card-property-book input {
+  border: none;
+  background-color: $blue;
+  color: white;
+  opacity: 0.9;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  padding: 8px;
+  bottom: 24px;
+  right: 16px;
+  left: 16px;
+  border-radius: 4px;
+}
+
+.card-property-book input:hover {
+  opacity: 1;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
