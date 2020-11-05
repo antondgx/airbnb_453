@@ -37,9 +37,13 @@
 <p> Address: <%= @property.address %> </p>
 <p> Price: <%= @property.price %> </p>
 <p> Capacity: <%= @property.capacity %> </p>
-<%= link_to  "Edit", edit_property_path %>
+<% if policy(@property).edit? %>
+  <%= link_to  "Edit", edit_property_path %>
+<% end %>
 <br>
-<%= link_to  "Delete", property_path(@property), method: :delete, data: {confirm: 'Are you sure?'} %>
+<% if policy(@property).destroy? %>
+  <%= link_to  "Delete", property_path(@property), method: :delete, data: {confirm: 'Are you sure?'} %>
+<% end %>
 <br>
 <%= link_to "Back to listings", properties_path %>
 <hr>

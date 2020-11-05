@@ -4,7 +4,7 @@ class PropertiesController < ApplicationController
 
   def index
     # @properties = Property.all
-    @properties = policy_scope(Property)
+    @properties = policy_scope(Property).order(created_at: :desc)
   end
 
   def show
