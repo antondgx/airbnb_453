@@ -47,7 +47,7 @@ puts "Created all users"
 
 
 puts "Creating properties and bookings..."
-20.times do
+10.times do
   newproperty = Property.new(
     title: ["Entire Apt", "Studio Apt", "Condo"].sample + " at " + Faker::Address.street_name,
     description: Faker::Lorem.paragraphs(number: 1).first,
