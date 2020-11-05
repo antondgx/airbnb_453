@@ -1,23 +1,62 @@
 <h1> <%= @property.title %> </h1>
-<% @property.photos.each do |photo|  %>
-<%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<%end%>
 
-<p> Description: <%= @property.description %> </p>
-<p> Address: <%= @property.address %> </p>
-<p> Price: <%= @property.price %> </p>
-<p> Capacity: <%= @property.capacity %> </p>
-<%= link_to  "Edit", edit_property_path %>
-<br>
-<%= link_to  "Delete", property_path(@property), method: :delete, data: {confirm: 'Are you sure?'} %>
-<br>
-<%= link_to "Back to listings", properties_path %>
-<hr>
+<!-- below is carousel image component from bootstrap => https://getbootstrap.com/docs/4.5/components/carousel/-->
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
 
-<h4> Book! </h4>
-<%= simple_form_for [@property, Booking.new] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :property, as: :hidden, html_input: { value: @property} %>
-  <%= f.submit %>
-<% end %>
+    <!-- below is an array of indicator elements. We need to add "active" to the first element
+      for this bootstrap component to work. See application.js where we add active to the first element -->
+    <% image_count = @property.photos.size %>
+    <% image_count.times do %>
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" ></li>
+    <% end %>
+
+  </ol>
+  <div class="carousel-inner">
+
+    <!-- below is an array of image elements. We need to add "active" to the first element
+      for this bootstrap component to work. See application.js where we add active to the first element -->
+    <% @property.photos.each do |photo| %>
+      <div class= "carousel-item">
+        <%= cl_image_tag photo.key, height: 450, crop: :fill, :class => "d-block w-100" %>
+      </div>
+    <%end%>
+
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<div class="card-property">
+  <div class="card-property-details">
+    <div class="card-property-details-main">
+      <p> Description: <%= @property.description %> </p>
+      <p> Address: <%= @property.address %> </p>
+      <p> Price: <%= @property.price %> </p>
+      <p> Capacity: <%= @property.capacity %> </p>
+    </div>
+    <div class="card-property-details-footer">
+      <ul>
+        <li><%= link_to  "Edit", edit_property_path %> </li>
+        <li><%= link_to  "Delete", property_path(@property), method: :delete, data: {confirm: 'Are you sure?'} %></lo>
+        <li><%= link_to "Back to listings", properties_path %> </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card-property-book">
+    <h4> Book! </h4>
+    <%= simple_form_for [@property, Booking.new] do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.input :property, as: :hidden, html_input: { value: @property} %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

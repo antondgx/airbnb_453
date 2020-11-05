@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :properties do
-    resources :bookings, only:[:new, :create, :destroy]
+    resources :bookings, only:[:new, :create]
   end
+  resources :bookings, only:[:destroy]
 
   get "/bookings", to: "bookings#my_bookings", as: :my_bookings
 
