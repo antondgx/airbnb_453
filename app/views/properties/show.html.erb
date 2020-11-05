@@ -33,25 +33,34 @@
   </a>
 </div>
 
-<p> Description: <%= @property.description %> </p>
-<p> Address: <%= @property.address %> </p>
-<p> Price: <%= @property.price %> </p>
-<p> Capacity: <%= @property.capacity %> </p>
-<% if policy(@property).edit? %>
-  <%= link_to  "Edit", edit_property_path %>
-<% end %>
-<br>
-<% if policy(@property).destroy? %>
-  <%= link_to  "Delete", property_path(@property), method: :delete, data: {confirm: 'Are you sure?'} %>
-<% end %>
-<br>
-<%= link_to "Back to listings", properties_path %>
-<hr>
+<div class="card-property">
+  <div class="card-property-details">
+    <div class="card-property-details-main">
+      <p> Description: <%= @property.description %> </p>
+      <p> Address: <%= @property.address %> </p>
+      <p> Price: <%= @property.price %> </p>
+      <p> Capacity: <%= @property.capacity %> </p>
+    </div>
+    <div class="card-property-details-footer">
+      <ul>
+        <% if policy(@property).edit? %>
+          <li><%= link_to  "Edit", edit_property_path %> </li>
+        <% end %>
+        <% if policy(@property).destroy? %>
+          <li><%= link_to  "Delete", property_path(@property), method: :delete, data: {confirm: 'Are you sure?'} %></lo>
+        <% end %>
+        <li><%= link_to "Back to listings", properties_path %> </li>
+      </ul>
+    </div>
+  </div>
 
-<h4> Book! </h4>
-<%= simple_form_for [@property, Booking.new] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :property, as: :hidden, html_input: { value: @property} %>
-  <%= f.submit %>
-<% end %>
+  <div class="card-property-book">
+    <h4> Book! </h4>
+    <%= simple_form_for [@property, Booking.new] do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.input :property, as: :hidden, html_input: { value: @property} %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
