@@ -1,0 +1,31 @@
+.card-property {
+  overflow: hidden;
+  height: 320px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+}
+
+.card-property .card-property-details {
+  font-size: 16px;
+  line-height: 1.2;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  margin-left: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-property .card-property-details-footer {
+  font-size: 16px;
+  opacity: .7;
+  margin-bottom: 0;
+  line-height: 1;
+}
+
+.card-property .card-property-details-footer ul {
+  list-style-type: none;
+  padding-left: 0;
+}

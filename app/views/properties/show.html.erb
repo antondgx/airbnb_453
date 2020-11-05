@@ -35,16 +35,19 @@
 
 <div class="card-property">
   <div class="card-property-details">
-    <p> Description: <%= @property.description %> </p>
-    <p> Address: <%= @property.address %> </p>
-    <p> Price: <%= @property.price %> </p>
-    <p> Capacity: <%= @property.capacity %> </p>
-    <%= link_to  "Edit", edit_property_path %>
-    <br>
-    <%= link_to  "Delete", property_path(@property), method: :delete, data: {confirm: 'Are you sure?'} %>
-    <br>
-    <%= link_to "Back to listings", properties_path %>
-    <hr>
+    <div class="card-property-details-main">
+      <p> Description: <%= @property.description %> </p>
+      <p> Address: <%= @property.address %> </p>
+      <p> Price: <%= @property.price %> </p>
+      <p> Capacity: <%= @property.capacity %> </p>
+    </div>
+    <div class="card-property-details-footer">
+      <ul>
+        <li><%= link_to  "Edit", edit_property_path %> </li>
+        <li><%= link_to  "Delete", property_path(@property), method: :delete, data: {confirm: 'Are you sure?'} %></lo>
+        <li><%= link_to "Back to listings", properties_path %> </li>
+      </ul>
+    </div>
   </div>
 
   <div class="card-property-book">

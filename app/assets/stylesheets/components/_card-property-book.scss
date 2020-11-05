@@ -1,12 +1,8 @@
 .card-property-book {
-  position: relative;
-  overflow: hidden;
   height: 320px;
   width: 400px;
-  background: white;
+  background: $light-gray;
   padding: 16px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 4px;
 }
 
 .card-property-book h4 {
@@ -29,7 +25,6 @@
   color: white;
   opacity: 0.9;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  position: absolute;
   padding: 8px;
   bottom: 24px;
   right: 16px;
