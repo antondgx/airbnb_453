@@ -16,6 +16,7 @@ class PropertiesController < ApplicationController
   end
 
   def create
+    @property = Property.new(property_params)
     @user = User.find(current_user.id)
     @property.user = @user
     authorize @property

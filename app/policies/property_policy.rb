@@ -12,5 +12,4 @@ class PropertyPolicy < ApplicationPolicy
   def show?
     true
   end
-
 end
