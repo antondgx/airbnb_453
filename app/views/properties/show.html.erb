@@ -45,9 +45,11 @@
 <hr>
 
 <h4> Book! </h4>
-<%= simple_form_for [@property, Booking.new] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :property, as: :hidden, html_input: { value: @property} %>
-  <%= f.submit %>
-<% end %>
+<div id='flat-booking-dates' data-unavailable="<%= @property.unavailable_dates.to_json %>">
+  <%= simple_form_for [@property, @booking ] do |f| %>
+    <%= f.input :start_date, as: :string, type: :text %>
+    <%= f.input :end_date, as: :string, type: :text %>
+    <%= f.input :property, as: :hidden, html_input: { value: @property} %>
+    <%= f.submit %>
+  <% end %>
+</div>

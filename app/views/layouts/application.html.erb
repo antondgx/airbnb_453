@@ -38,7 +38,7 @@
           <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <% if user_signed_in? %>
-             <a class="dropdown-item" href="#"><%= link_to 'Logout', destroy_user_session_path, method: 'delete' %></a>
+             <a class="dropdown-item" href="#"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></a>
              <a class="dropdown-item" href="#"><%= link_to 'MyProperties', bookings_on_my_properties_path %> </a>
              <a class="dropdown-item" href="#"><%= link_to 'MyBookings', my_bookings_path %> </a>
             <% end %>
