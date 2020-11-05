@@ -10,22 +10,27 @@
 
 <hr>
 
-
-<div class="m-4">
-      <div class="card" style="width: 18rem">
-        <% @properties.each do |property| %>
+<div class="content">
+  <div class="cards">
+    <% @properties.each do |property| %>
+    <div class="card">
+      <% property.photos.each do |photo|  %>
+      <%= cl_image_tag photo.key, :secure=>true,  :transformation=>[{:width=>248, :height=>198, :gravity=> "center", :crop=> "thumb"}], class: "card-img-top" %>
+      <% end %>
+      <div class="card-body">
         <h4> <%= property.title %> </h4>
-              <% property.photos.each do |photo|  %>
-              <%= cl_image_tag photo.key, class: "card-img-top" %>
-             <% end %>
-        <div class="card-body">
-          <h5 class="card-title"> Description: <%= property.description %></h5>
-          <p class="card-text">Price: <%= property.price %></p>
-          <p class="card-text">Address: <%= property.address %> </p>
-          <p class="card-text">Capacity: <%= property.capacity %></p>
-          <%= link_to "Show this apartment", property_path(property), class: 'btn btn-primary' %></a>
-        </div>
-        <% end %>
+        <h5 class="card-description"> <%= property.description %></h5>
+        <p class="card-location">Location: <%= property.address %> </p>
+        <p class="card-capacity">Capacity: <%= property.capacity %></p>
+        <p class="card-price"> <strong><%= property.price %></strong> SGD / night</p>
+        <%= link_to "Book", property_path(property), class: 'btn btn-outline-secondary' %></a>
       </div>
-</div>
+    </div>
+    <% end %>
 
+    <!-- <img id="map" src='https://api.mapbox.com/[...]?access_token=pk.eyJ1IjoiZmxvcmVudG1hcmNvIiwiYSI6ImNraDR1cHdudDAwOXMycnF6Z2Z3NG81aW8ifQ.1bF9YL9O_V3JJIy6luZ1JQ'> -->
+  </div>
+
+  <%= image_tag "https://lewagon.github.io/layouts-demo/images/mapbox.png" , id: "map"%>
+
+</div>
