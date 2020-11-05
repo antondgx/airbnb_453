@@ -5,3 +5,28 @@
 body {
   background-color: $light-gray;
 }
+
+.content {
+  display: flex;
+}
+
+
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 8px;
+  padding: 16px;
+}
+
+
+#map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.cards {
+  flex-grow: 1;
+
+}
