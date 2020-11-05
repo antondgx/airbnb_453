@@ -43,8 +43,12 @@
     </div>
     <div class="card-property-details-footer">
       <ul>
-        <li><%= link_to  "Edit", edit_property_path %> </li>
-        <li><%= link_to  "Delete", property_path(@property), method: :delete, data: {confirm: 'Are you sure?'} %></lo>
+        <% if policy(@property).edit? %>
+          <li><%= link_to  "Edit", edit_property_path %> </li>
+        <% end %>
+        <% if policy(@property).destroy? %>
+          <li><%= link_to  "Delete", property_path(@property), method: :delete, data: {confirm: 'Are you sure?'} %></lo>
+        <% end %>
         <li><%= link_to "Back to listings", properties_path %> </li>
       </ul>
     </div>
