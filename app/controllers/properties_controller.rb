@@ -1,10 +1,10 @@
 class PropertiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_property, only: [:show, :edit]
+  before_action :set_property, only: [:show, :edit, :update, :destroy]
 
   def index
-    @properties = Property.all
-    authorize @properties
+    # @properties = Property.all
+    @properties = policy_scope(Property)
   end
 
   def show
