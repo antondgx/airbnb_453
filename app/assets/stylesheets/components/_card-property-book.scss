@@ -1,4 +1,4 @@
-.book {
+.card-property-book {
   position: relative;
   overflow: hidden;
   height: 320px;
@@ -9,13 +9,13 @@
   border-radius: 4px;
 }
 
-.book h4 {
+.card-property-book h4 {
   font-size: 32px;
   font-weight: bold;
   margin: 0;
 }
 
-.book .new_booking {
+.card-property-book .new_booking {
   font-size: 16px;
   line-height: 1.4;
   opacity: .7;
@@ -23,7 +23,7 @@
   padding: 16px 8px;
 }
 
-.book input {
+.card-property-book input {
   border: none;
   background-color: $blue;
   color: white;
@@ -37,7 +37,7 @@
   border-radius: 4px;
 }
 
-.book input:hover {
+.card-property-book input:hover {
   opacity: 1;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
