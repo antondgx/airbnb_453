@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   # renter action
   def my_bookings
-    @bookings = current_user.bookings
+    @bookings = current_user.bookings.order(start_date: :asc)
   end
 
   # owner action
