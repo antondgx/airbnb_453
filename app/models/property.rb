@@ -9,4 +9,10 @@ class Property < ApplicationRecord
   validates :price, presence: true, numericality: { only_integer: true }
   validates :capacity, presence: true
   validates :user_id, presence: true
+
+  def unavailable_dates
+    bookings.pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
 end
