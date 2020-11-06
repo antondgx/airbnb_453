@@ -7,7 +7,7 @@
   <h3> <%= booking.property.title %> </h3>
   <p> From <%= booking.start_date %> to <%= booking.end_date %> </p>
   <p> Price: <%= booking.price %> </p>
-  <p> Owner's email: <%= booking.user.email %> </p>
+  <p> Owner's email: <%= booking.property.user.email %> </p>
   <%= link_to "Delete", booking_path(booking), method: "delete", data:{confirm: "Are you sure?"}  %>
   <hr>
 <% end %>
