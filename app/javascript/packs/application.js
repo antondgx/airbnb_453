@@ -53,4 +53,3 @@ document.addEventListener('turbolinks:load', () => {
   const firstImage = document.querySelector(".carousel-item");
   firstImage.classList.add("active");
 });
-

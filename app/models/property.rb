@@ -14,9 +14,6 @@ class Property < ApplicationRecord
   validates :capacity, presence: true
   validates :user_id, presence: true
 
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
-
   def unavailable_dates
     bookings.pluck(:start_date, :end_date).map do |range|
       { from: range[0], to: range[1] }
