@@ -40,7 +40,8 @@ visitor2.save
 
 admin = User.new(
   email: "admin@gmail.com",
-  password: '111111'
+  password: '111111',
+  admin: true
 )
 admin.save
 puts "Created all users"
