@@ -7,6 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "faker"
 require "date"
+require "open-uri"
+
+# file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+# article = Article.new(title: 'NES', body: "A great console")
+# article.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 puts "Cleaning database..."
 Property.destroy_all
@@ -57,6 +62,19 @@ puts "Creating properties and bookings..."
     capacity: rand(1..4),
   )
   newproperty.user = [owner1, owner2].sample
+
+  sampleimages = [
+    "https://images.adsttc.com/media/images/5ecd/d4ac/b357/65c6/7300/009d/medium_jpg/02C.jpg?1590547607",
+    "https://a0.muscache.com/im/pictures/c34e2dff-8e29-4567-a65d-0ac02d97545b.jpg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/957aff4e-aaaf-4195-8084-b7f9b871b7a7.jpg?im_w=960",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTHhl2qH61IMYbZD77iWhgy-4TiLq1cRAPPSA&usqp=CAU",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRd0z0kTwkXPXeCtGI4sJg6-WmoD0XqlPkdrQ&usqp=CAU",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTmz1lKPojj8GFS8INs0JYNbqTrlNhIhKPJrw&usqp=CAU",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQwOxPgo1wQf86te2IsV1TqUS-o_izuxvcXA&usqp=CAU"
+  ].sample
+
+  file = URI.open(sampleimages)
+  newproperty.photos.attach(io: file, filename: 'sample.png', content_type: 'image/png')
   newproperty.save
   puts "Created #{newproperty.title}"
 
