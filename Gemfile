@@ -44,6 +44,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 # gem 'image_processing'
 gem 'geocoder'
+gem "nokogiri"
 
 group :development, :test do
   gem 'pry-byebug'
