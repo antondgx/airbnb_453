@@ -25,7 +25,9 @@ require("channels")
 // External imports
 import "bootstrap";
 import flatpickr from "flatpickr";
+import "jquery-bar-rating";
 import { toggleDateInputs } from "./plugins/init_flatpickr";
+import { initStarRating } from './plugins/init_star_rating';
 import { initAutocomplete } from "./plugins/init_autocomplete"
 
 import { initMapbox } from './plugins/init_mapbox';
@@ -39,6 +41,8 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   toggleDateInputs();
   initMapbox();
+
+  initStarRating();
   initAutocomplete();
   // add active to first element with .carousel-indicators li
   const firstIndicator = document.querySelector(".carousel-indicators li");
@@ -49,5 +53,4 @@ document.addEventListener('turbolinks:load', () => {
   const firstImage = document.querySelector(".carousel-item");
   firstImage.classList.add("active");
 });
-
 

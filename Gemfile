@@ -43,6 +43,7 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 # gem 'image_processing'
+gem 'geocoder'
 
 group :development, :test do
   gem 'pry-byebug'
