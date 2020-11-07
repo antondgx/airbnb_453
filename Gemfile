@@ -28,6 +28,10 @@ gem 'cloudinary', '~> 1.16.0'
 gem "faker"
 
 gem 'pundit'
+
+# get coordinates of addresses
+gem 'geocoder'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
