@@ -28,8 +28,7 @@ import flatpickr from "flatpickr";
 import "jquery-bar-rating";
 import { toggleDateInputs } from "./plugins/init_flatpickr";
 import { initStarRating } from './plugins/init_star_rating';
-
-
+import { initAutocomplete } from "./plugins/init_autocomplete"
 
 
 
@@ -41,6 +40,8 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   toggleDateInputs();
   initStarRating();
+  initAutocomplete();
+
   // add active to first element with .carousel-indicators li
   const firstIndicator = document.querySelector(".carousel-indicators li");
   firstIndicator.classList.add("active");
