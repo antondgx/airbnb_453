@@ -50,3 +50,10 @@ document.addEventListener('turbolinks:load', () => {
   const firstImage = document.querySelector(".carousel-item");
   firstImage.classList.add("active");
 });
+
+import { initMapbox } from '../plugins/init_mapbox';
+
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})
+

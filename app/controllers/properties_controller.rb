@@ -10,6 +10,7 @@ class PropertiesController < ApplicationController
   def show
     @property = Property.find(params[:id])
     @booking = Booking.new
+    @markers = { lat: @property.latitude, lng: @property.longitude }
   end
 
   def new
