@@ -6,27 +6,40 @@
 
 <hr>
 
-<div class="content">
-  <div class="cards">
-    <% @properties.each do |property| %>
-    <div class="card">
-      <% property.photos.each do |photo|  %>
-      <%= cl_image_tag photo.key, :secure=>true,  :transformation=>[{:width=>248, :height=>198, :gravity=> "center", :crop=> "thumb"}], class: "card-img-top" %>
-      <% end %>
-      <div class="card-body">
-        <h4> <%= property.title %> </h4>
-        <h5 class="card-description"> <%= property.description %></h5>
-        <p class="card-location">Location: <%= property.address %> </p>
-        <p class="card-capacity">Capacity: <%= property.capacity %></p>
-        <p class="card-price"> <strong><%= property.price %></strong> SGD / night</p>
-        <%= link_to "Book", property_path(property), class: 'btn btn-outline-secondary' %></a>
-      </div>
-    </div>
-    <% end %>
-
-    <!-- <img id="map" src='https://api.mapbox.com/[...]?access_token=pk.eyJ1IjoiZmxvcmVudG1hcmNvIiwiYSI6ImNraDR1cHdudDAwOXMycnF6Z2Z3NG81aW8ifQ.1bF9YL9O_V3JJIy6luZ1JQ'> -->
+<div class="banner">
+  <div class="container">
+    <h1>Looking for an experience</h1>
+    <p>Change your life and experience local life</p>
   </div>
-
-  <%= image_tag "https://lewagon.github.io/layouts-demo/images/mapbox.png" , id: "map"%>
-
 </div>
+
+<div class="title-card ">
+  <h4> <%= link_to  "Create new", new_property_path, class: 'btn btn-secondary' %> </h4>
+</div>
+
+<div class="cards-container d-flex">
+  <div class="cards">
+      <% @properties.each do |property| %>
+        <% property.photos.each do |photo|  %>
+        <div class="card-product">
+          <%= cl_image_tag photo.key, class: "card-img-top" %>
+          <div class="card-product-infos">
+            <h4> <%= property.title %> </h4>
+            <h5 class="card-description"> <%= property.description %></h5>
+            <p class="card-location">Location: <%= property.address %> </p>
+            <p class="card-capacity">Capacity: <%= property.capacity %></p>
+            <p class="card-price"> <strong><%= property.price %></strong> SGD / night</p>
+            <%= link_to "Book", property_path(property), class: 'btn btn-secondary'%></a>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+  </div>
+  <div id="map"
+    style="width: 100%; height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+
+  <!-- <div class="content d-flex p-60"> -->
