@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :bookings
   has_one_attached :avatar
 
+  validates :username, presence: true
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

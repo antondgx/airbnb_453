@@ -8,6 +8,7 @@
 require "faker"
 require "date"
 require "open-uri"
+require_relative "scraper.rb"
 
 # file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
 # article = Article.new(title: 'NES', body: "A great console")
@@ -21,32 +22,37 @@ User.destroy_all
 puts "Creating users"
 owner1 = User.new(
   email: "owner1@gmail.com",
-  password: '111111'
+  password: '111111',
+  username: "Mika"
 )
 owner1.save
 
 owner2 = User.new(
   email: "owner2@gmail.com",
-  password: '111111'
+  password: '111111',
+  username: "Adrien"
 )
 owner2.save
 
 visitor1 = User.new(
   email: "visitor1@gmail.com",
-  password: '111111'
+  password: '111111',
+  username: "Yuva"
 )
 visitor1.save
 
 visitor2 = User.new(
   email: "visitor2@gmail.com",
-  password: '111111'
+  password: '111111',
+  username: "Anton"
 )
 visitor2.save
 
 admin = User.new(
   email: "admin@gmail.com",
   password: '111111',
-  admin: true
+  admin: true,
+  username: "Flo"
 )
 admin.save
 puts "Created all users"

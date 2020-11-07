@@ -29,7 +29,7 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <% if user_signed_in? %>
-            <%= current_user.email %>
+            <%= current_user.username %>
           <% else %>
             <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
           <% end %>
@@ -59,7 +59,7 @@
     </div>
   </div>
 
-  <div class="container" style="padding: 60px;">
+  <div class="content>
     <%= yield %>
   </div>
 
