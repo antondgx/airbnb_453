@@ -55,10 +55,19 @@ puts "Created all users"
 
 puts "Creating properties and bookings..."
 10.times do
+  address_in_sg = ['Floor 33 @ Courtyard Marriott, 99, Irrawaddy Rd, Singapore 329568',
+                  '238 Thomson Rd, #02 - 49 / 50, Singapore 307683',
+                  '1 Cluny Rd, Singapore 259569',
+                  '1 Orchard Blvd, #01-01/02 Camden Medical Centre, Singapore 248649',
+                  '481 Bukit Timah Rd, Singapore 259769',
+                  '240 Sime Rd, Singapore 288303',
+                  '15 Science Centre Rd, Singapore 609081',
+                  '51 Chinese Cemetery Path 4, 698932',
+                  '1 Turf Club Avenue Singapore Racecourse, Singapore 738078']
   newproperty = Property.new(
     title: ["Entire Apt", "Studio Apt", "Condo"].sample + " at " + Faker::Address.street_name,
     description: Faker::Lorem.paragraphs(number: 1).first,
-    address: scrape_address,
+    address: address_in_sg.sample,
     price: rand(50..200),
     capacity: rand(1..4),
   )
@@ -79,10 +88,13 @@ puts "Creating properties and bookings..."
   newproperty.save
   puts "Created #{newproperty.title}"
 
+  start_date = Date.today+rand(10..100)
+  end_date = start_date + rand(10..20)
+
   newbooking = Booking.new(
-    start_date: Date.today+10,
-    end_date: Date.today+rand(10..20),
-    price: rand(50..150)
+    start_date: start_date,
+    end_date: end_date,
+    price: newproperty.price * (end_date - start_date)
   )
   newbooking.property = newproperty
   newbooking.user = [visitor1, visitor2].sample
@@ -91,3 +103,6 @@ puts "Creating properties and bookings..."
 
 end
 puts "Finished!"
+
+
+
