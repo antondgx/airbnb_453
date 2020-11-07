@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :properties
   has_many :bookings
+  has_one_attached :avatar
 
   validates :username, presence: true
 
