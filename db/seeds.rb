@@ -87,10 +87,13 @@ puts "Creating properties and bookings..."
   newproperty.save
   puts "Created #{newproperty.title}"
 
+  start_date = Date.today+rand(10..100)
+  end_date = start_date + rand(10..20)
+
   newbooking = Booking.new(
-    start_date: Date.today+10,
-    end_date: Date.today+rand(10..20),
-    price: rand(50..150)
+    start_date: start_date,
+    end_date: end_date,
+    price: newproperty.price * (end_date - start_date)
   )
   newbooking.property = newproperty
   newbooking.user = [visitor1, visitor2].sample
