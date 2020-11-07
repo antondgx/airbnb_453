@@ -1,5 +1,5 @@
 require "open-uri"
-require "Nokogiri"
+require "nokogiri"
 
 def scrape_address
   url = "https://www.fakeaddressgenerator.com/All_countries/address/country/Singapore"
