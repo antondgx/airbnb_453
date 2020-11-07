@@ -6,8 +6,10 @@
 <% @my_properties.each do |property| %>
     <h4> <%= property.title %> </h4>
     <% property.bookings.each do |booking| %>
-      <p> Renter's email: <%= booking.user.email %> </p>
+      <p> Renter: <%= booking.user.username %> </p>
+      <p> Date: From: <%= booking.start_date %> to: <%= booking.end_date %> </p>
       <p> Paid: <%= booking.price %> </p>
+      <hr>
     <% end %>
   <hr>
 <% end %>
