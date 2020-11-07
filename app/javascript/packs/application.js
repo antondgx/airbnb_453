@@ -25,7 +25,11 @@ require("channels")
 // External imports
 import "bootstrap";
 import flatpickr from "flatpickr";
+import "jquery-bar-rating";
 import { toggleDateInputs } from "./plugins/init_flatpickr";
+import { initStarRating } from './plugins/init_star_rating';
+
+
 
 
 
@@ -36,6 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   toggleDateInputs();
+  initStarRating();
   // add active to first element with .carousel-indicators li
   const firstIndicator = document.querySelector(".carousel-indicators li");
   firstIndicator.classList.add("active");
