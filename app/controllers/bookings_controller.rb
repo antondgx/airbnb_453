@@ -16,7 +16,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @property = Property.find(params[:property_id])
-    @booking.price = @property.price
+    @booking.price = booking_price(@booking, @property)
+    # @booking.price = @property.price
     @booking.property = @property
     if @booking.save
       redirect_to my_bookings_path
@@ -37,6 +38,11 @@ class BookingsController < ApplicationController
   end
 
   private
+
+  def booking_price(booking, property)
+    duration = booking.end_date - booking.start_date
+    price = property.price * duration
+  end
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
