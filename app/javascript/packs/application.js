@@ -26,6 +26,7 @@ require("channels")
 import "bootstrap";
 import flatpickr from "flatpickr";
 import { toggleDateInputs } from "./plugins/init_flatpickr";
+import { initAutocomplete } from "./plugins/init_autocomplete"
 
 import { initMapbox } from './plugins/init_mapbox';
 
@@ -38,6 +39,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   toggleDateInputs();
   initMapbox();
+  initAutocomplete();
   // add active to first element with .carousel-indicators li
   const firstIndicator = document.querySelector(".carousel-indicators li");
   firstIndicator.classList.add("active");

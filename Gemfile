@@ -29,6 +29,10 @@ gem "faker"
 gem 'geocoder'
 
 gem 'pundit'
+
+# get coordinates of addresses
+gem 'geocoder'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
