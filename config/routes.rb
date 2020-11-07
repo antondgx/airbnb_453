@@ -5,8 +5,10 @@ Rails.application.routes.draw do
 
   resources :properties do
     resources :bookings, only:[:new, :create]
+    resources :reviews
   end
   resources :bookings, only:[:destroy]
+  
 
   get "/bookings", to: "bookings#my_bookings", as: :my_bookings
 
