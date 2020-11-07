@@ -48,9 +48,9 @@
             <li><%= link_to  "Edit", edit_property_path, class: 'btn btn-primary btn-sm' %> </li>
           <% end %>
           <% if policy(@property).destroy? %>
-            <li><%= link_to  "Delete", property_path(@property), class: 'btn btn-danger btn-sm', method: :delete, data: {confirm: 'Are you sure?'} %></lo>
+            <li><%= link_to  "Delete", property_path(@property), class: 'btn btn-danger btn-sm', method: :delete, data: {confirm: 'Are you sure?'} %></li>
           <% end %>
-          <p><%= link_to "Back to listings", properties_path, class: 'btn btn-primary btn-sm', style: 'margin: 5px;'%> 
+          <p><%= link_to "Back to listings", properties_path, class: 'btn btn-primary btn-sm', style: 'margin: 5px;'%>
           <%= link_to "Add review", new_property_review_path(@property), class: 'btn btn-primary btn-sm' %></p>
         </ul>
       </div>
