@@ -20,11 +20,12 @@
       <% end %>
 
       <div class="card-body">
-        <h4> <%= property.title %> </h4>
+        <h4> <%= link_to property.title, property_path(property) %> </h4>
         <h5 class="card-description"> <%= property.description %></h5>
         <p class="card-location">Location: <%= property.address %> </p>
         <p class="card-capacity">Capacity: <%= property.capacity %></p>
         <p class="card-price"> <strong><%= property.price %></strong> SGD / night</p>
+        <p class="card-review">Reviews: <%= link_to property.reviews.count, property_path(property, anchor: 'review') %> </p>
         <%= link_to "Book", property_path(property), class: 'btn btn-outline-secondary' %></a>
       </div>
     </div>

@@ -44,24 +44,34 @@
     <div class="card-property-details-footer">
       <ul>
         <% if policy(@property).edit? %>
-          <li><%= link_to  "Edit", edit_property_path %> </li>
+          <li><%= link_to  "Edit", edit_property_path, class: 'btn btn-primary btn-sm' %> </li>
         <% end %>
         <% if policy(@property).destroy? %>
-          <li><%= link_to  "Delete", property_path(@property), method: :delete, data: {confirm: 'Are you sure?'} %></lo>
+          <li><%= link_to  "Delete", property_path(@property), class: 'btn btn-danger btn-sm', method: :delete, data: {confirm: 'Are you sure?'} %></lo>
         <% end %>
-        <li><%= link_to "Back to listings", properties_path %> </li>
+        <p><%= link_to "Back to listings", properties_path, class: 'btn btn-primary btn-sm', style: 'margin: 5px;'%> 
+        <%= link_to "Add review", new_property_review_path(@property), class: 'btn btn-primary btn-sm' %></p>
       </ul>
     </div>
   </div>
-
-<div class="card-property-book">
-  <h4> Book! </h4>
-  <div id='flat-booking-dates' data-unavailable="<%= @property.unavailable_dates.to_json %>">
-    <%= simple_form_for [@property, @booking ] do |f| %>
-      <%= f.input :start_date, as: :string, type: :text %>
-      <%= f.input :end_date, as: :string, type: :text %>
-      <%= f.input :property, as: :hidden, html_input: { value: @property} %>
-      <%= f.button :submit, "Submit", class: "white-input" %>
-    <% end %>
+  
+  <div>
+    <h4>Book!</h4>
+    <div id='flat-booking-dates' data-unavailable="<%= @property.unavailable_dates.to_json %>">
+      <%= simple_form_for [@property, @booking ] do |f| %>
+        <%= f.input :start_date, as: :string, type: :text %>
+        <%= f.input :end_date, as: :string, type: :text %>
+        <%= f.input :property, as: :hidden, html_input: { value: @property} %>
+        <%= f.submit %>
+      <% end %>
+    </div>
   </div>
+</div>
+
+<div class="card-property-details-main">
+  <h4 style="text-align: left;"><%= @property.reviews.count %> Reviews</h4>
+  <% @property.reviews.each do |review| %>
+     <p><%= review.user.username  %></p>
+     <%= review.content%>
+  <% end %>
 </div>
