@@ -8,6 +8,7 @@
 require "faker"
 require "date"
 require "open-uri"
+require_relative "scraper.rb"
 
 # file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
 # article = Article.new(title: 'NES', body: "A great console")
@@ -57,7 +58,7 @@ puts "Creating properties and bookings..."
   newproperty = Property.new(
     title: ["Entire Apt", "Studio Apt", "Condo"].sample + " at " + Faker::Address.street_name,
     description: Faker::Lorem.paragraphs(number: 1).first,
-    address: Faker::Address.full_address,
+    address: scrape_address,
     price: rand(50..200),
     capacity: rand(1..4),
   )
