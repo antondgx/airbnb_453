@@ -19,10 +19,13 @@
   padding: 16px 8px;
 }
 
+.white-input {
+  color: white;
+}
+
 .card-property-book input {
   border: none;
   background-color: $blue;
-  color: white;
   opacity: 0.9;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   padding: 8px;
@@ -31,6 +34,7 @@
   left: 16px;
   border-radius: 4px;
 }
+
 
 .card-property-book input:hover {
   opacity: 1;
