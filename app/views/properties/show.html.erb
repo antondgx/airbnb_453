@@ -1,19 +1,14 @@
-<h1> <%= @property.title %> </h1>
-
 <div class="container">
   <!-- below is carousel image component from bootstrap => https://getbootstrap.com/docs/4.5/components/carousel/-->
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
-
       <!-- below is an array of indicator elements. We need to add "active" to the first element
         for this bootstrap component to work. See application.js where we add active to the first element -->
       <% image_count = @property.photos.size %>
       <% image_count.times do %>
         <li data-target="#carouselExampleIndicators" data-slide-to="0" ></li>
       <% end %>
-
     </ol>
-
     <div class="carousel-inner">
       <!-- below is an array of image elements. We need to add "active" to the first element
         for this bootstrap component to work. See application.js where we add active to the first element -->
@@ -38,6 +33,7 @@
     <div class="card-property">
       <div class="card-property-details">
         <div class="card-property-details-main">
+          <h3> <%= @property.title %> </h3>
           <p> Description: <%= @property.description %> </p>
           <p> Address: <%= @property.address %> </p>
           <p> Price: <%= @property.price %> </p>
@@ -46,13 +42,16 @@
         <div class="card-property-details-footer">
           <ul>
             <% if policy(@property).edit? %>
-              <li><%= link_to  "Edit", edit_property_path, class: 'btn btn-primary btn-sm mt-2' %> </li>
+              <li><%= link_to  "Edit", edit_property_path, class: 'btn btn-primary btn-sm mt-1' %> </li>
             <% end %>
             <% if policy(@property).destroy? %>
-              <li><%= link_to  "Delete", property_path(@property), class: 'btn btn-danger btn-sm mt-2', method: :delete, data: {confirm: 'Are you sure?'} %></li>
+              <li><%= link_to  "Delete", property_path(@property), class: 'btn btn-danger btn-sm mt-1', method: :delete, data: {confirm: 'Are you sure?'} %></li>
             <% end %>
-            <p><%= link_to "Back to listings", properties_path, class: 'btn btn-primary btn-sm mt-2' %>
-            <%= link_to "Add review", new_property_review_path(@property), class: 'btn btn-primary btn-sm mt-2' %></p>
+
+            <div class="d-flex justify-content-between">
+              <li> <%= link_to "Back to listings", properties_path, class: 'btn btn-primary btn-sm mt-1' %> </li>
+              <li> <%= link_to "Add review", new_property_review_path(@property), class: 'btn btn-primary btn-sm mt-1' %> </li>
+            </div>
           </ul>
         </div>
       </div>
@@ -69,17 +68,27 @@
         </div>
       </div>
     </div>
-
-    <div id="map"
-         data-markers="<%= @markers.to_json %>"
-         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 
-  <div>
-    <h4 style="text-align: left;"><%= @property.reviews.count %> Reviews</h4>
+</div>
+
+<hr>
+
+<div class="container d-flex">
+
+  <div class="card-review">
+    <h3> Reviews </h3>
     <% @property.reviews.each do |review| %>
-       <p><%= review.user.username  %></p>
-       <%= review.content%>
+       <h5> <%= review.user.username %> </h5>
+       <p> <%= review.content %> </p>
+       <hr>
     <% end %>
   </div>
+
+  <div id="map"
+           data-markers="<%= @markers.to_json %>"
+           style="width: 500px;"
+           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
 </div>

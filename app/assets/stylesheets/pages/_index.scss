@@ -4,14 +4,13 @@
 
 body {
   background-color: $light-gray;
+  padding-top: 70px;
 }
 
 #map {
   position: sticky;
   top: 68px;
   height: 100vh;
-  // width: 100vh;
-  margin-left: 10px;
 }
 
 .banner {
