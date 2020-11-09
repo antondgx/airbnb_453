@@ -2,6 +2,10 @@
 @import "home";
 @import "devise";
 
+.content {
+  width:1200px;
+  margin:0 auto;
+}
 
 body {
   background-color: $light-gray;
