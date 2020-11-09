@@ -1,11 +1,17 @@
-<h1> Create property </h1>
+<div class="container">
 
-<%= simple_form_for @property do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :address %>
-  <%= f.input :price %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.input :capacity %>
-  <%= f.submit %>
-<% end %>
+  <h1> Create your apartment! </h1>
+
+  <%= simple_form_for @property do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :address %>
+    <%= f.input :price %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.input :capacity %>
+    <%= f.submit %>
+  <% end %>
+
+</div>
+
+
