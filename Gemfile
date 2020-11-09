@@ -30,9 +30,6 @@ gem 'geocoder'
 
 gem 'pundit'
 
-# get coordinates of addresses
-gem 'geocoder'
-
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -43,7 +40,6 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 # gem 'image_processing'
-gem 'geocoder'
 
 group :development, :test do
   gem 'pry-byebug'

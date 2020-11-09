@@ -1,5 +1,5 @@
 .card-property-book {
-  height: 320px;
+  // height: 320px;
   width: 400px;
   background: $light-gray;
   padding: 16px;
@@ -20,12 +20,13 @@
 }
 
 .white-input {
+  background-color: $blue;
   color: white;
 }
 
 .card-property-book input {
   border: none;
-  background-color: $blue;
+
   opacity: 0.9;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   padding: 8px;
