@@ -1,13 +1,18 @@
-<h1> All my bookings (I'm a renter) </h1>
-<%= link_to "Back to listings" , properties_path %>
+<div class="container">
 
-<hr>
+  <h2> My bookings </h2>
+  <%= link_to "Back to listings" , properties_path %>
 
-<% @bookings.each do |booking| %>
-  <h3> <%= booking.property.title %> </h3>
-  <p> From <%= booking.start_date %> to <%= booking.end_date %> </p>
-  <p> Price: <%= booking.price %> </p>
-  <p> Owner: <%= booking.property.user.username %> </p>
-  <%= link_to "Delete", booking_path(booking), method: "delete", data:{confirm: "Are you sure?"}  %>
   <hr>
-<% end %>
+
+  <% @bookings.each do |booking| %>
+    <h3> <%= booking.property.title %> </h3>
+    <p> From <%= booking.start_date %> to <%= booking.end_date %> </p>
+    <p> Price: <%= booking.price %> </p>
+    <p> Owner: <%= booking.property.user.username %> </p>
+    <%= link_to "Delete", booking_path(booking), method: "delete", data:{confirm: "Are you sure?"}  %>
+    <hr>
+  <% end %>
+
+</div>
+
