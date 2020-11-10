@@ -30,6 +30,7 @@ import { toggleDateInputs } from "./plugins/init_flatpickr";
 import { initStarRating } from './plugins/init_star_rating';
 import { initAutocomplete } from "./plugins/init_autocomplete"
 
+import { initMapbox } from './plugins/init_mapbox';
 
 
 // Internal imports, e.g:
@@ -39,21 +40,16 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   toggleDateInputs();
+  initMapbox();
+
   initStarRating();
   initAutocomplete();
-
   // add active to first element with .carousel-indicators li
   const firstIndicator = document.querySelector(".carousel-indicators li");
   firstIndicator.classList.add("active");
+
 
   // add active to the first element with .carousel-item
   const firstImage = document.querySelector(".carousel-item");
   firstImage.classList.add("active");
 });
-
-import { initMapbox } from '../plugins/init_mapbox';
-
-document.addEventListener('turbolinks:load', () => {
-  initMapbox();
-})
-

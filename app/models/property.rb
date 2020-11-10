@@ -14,8 +14,12 @@ class Property < ApplicationRecord
   validates :capacity, presence: true
   validates :user_id, presence: true
 
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+  include PgSearch::Model
+  pg_search_scope :search_by_title_description_and_address,
+    against: [:title, :description, :address],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 
   def unavailable_dates
     bookings.pluck(:start_date, :end_date).map do |range|

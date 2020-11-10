@@ -26,11 +26,11 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
 
 gem "faker"
+gem 'geocoder'
 
 gem 'pundit'
 
-# get coordinates of addresses
-gem 'geocoder'
+gem 'pg_search', '~> 2.3.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -42,7 +42,8 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 # gem 'image_processing'
-gem 'geocoder'
+
+gem "nokogiri"
 
 group :development, :test do
   gem 'pry-byebug'
