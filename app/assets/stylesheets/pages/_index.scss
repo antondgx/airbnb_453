@@ -4,29 +4,109 @@
 
 body {
   background-color: $light-gray;
+  padding-top: 70px;
 }
-
-.content {
-  display: flex;
-}
-
-
-
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 8px;
-  padding: 16px;
-}
-
 
 #map {
-  height: 100vh;
   position: sticky;
-  top: 0;
+  top: 68px;
+  height: 100vh;
 }
 
-.cards {
-  flex-grow: 1;
+.banner {
+  background-size: auto;
+  background-position: center;
+  padding: 150px 0;
+  height: 250px;
+  text-align: left;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
+  background: asset-url('banner-img-4.jpg');
 
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+  position: relative;
+  bottom: 30px;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  position: relative;
+  bottom: 30px;
+}
+
+
+.card-product {
+  overflow: hidden;
+  height: 200px;
+  width: 600px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  display: flex;
+  margin: 10px;
+  border-radius: 5px;
+
+}
+
+
+.card-img-top {
+  height: 100%;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 5px 0px 0px 5px;
+}
+
+
+.card-product .card-product-infos p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+  flex-grow: 1;
+  position: relative;
+}
+
+.card-product .card-product-infos h4 {
+  color: grey;
+  font-size: 24px;
+  text-align: left;
+}
+
+.card-product-infos h5 {
+  text-align: left;
+}
+
+.card-product-infos .btn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+
+#banner-img {
+  height: 100%;
+  width: 200px;
+  object-fit: cover;
+}
+
+
+.title-card {
+  display: flex;
+  text-align: left;
+  margin: 10px;
 }

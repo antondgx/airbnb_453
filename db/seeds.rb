@@ -22,54 +22,102 @@ User.destroy_all
 puts "Creating users"
 owner1 = User.new(
   email: "owner1@gmail.com",
-  password: '111111'
+  password: '111111',
+  username: "Mika"
 )
 owner1.save
 
 owner2 = User.new(
   email: "owner2@gmail.com",
-  password: '111111'
+  password: '111111',
+  username: "Adrien"
 )
 owner2.save
 
 visitor1 = User.new(
   email: "visitor1@gmail.com",
-  password: '111111'
+  password: '111111',
+  username: "Yuva"
 )
 visitor1.save
 
 visitor2 = User.new(
   email: "visitor2@gmail.com",
-  password: '111111'
+  password: '111111',
+  username: "Anton"
 )
 visitor2.save
 
 admin = User.new(
   email: "admin@gmail.com",
   password: '111111',
-  admin: true
+  admin: true,
+  username: "Flo"
 )
 admin.save
 puts "Created all users"
 
 
 puts "Creating properties and bookings..."
+
+address_in_sg = [
+  {
+    address: 'Floor 33 @ Courtyard Marriott, 99, Irrawaddy Rd, Singapore 329568',
+    latitude: 1.320700,
+    longitude: 103.843360
+  },
+  {
+    address: '238 Thomson Rd, #02 - 49 / 50, Singapore 307683',
+    latitude: 1.319310,
+    longitude: 103.844180
+  },
+  {
+    address: '1 Cluny Rd, Singapore 259569',
+    latitude: 1.315470,
+    longitude: 103.817261
+  },
+  {
+    address: '1 Orchard Blvd, #01-01/02 Camden Medical Centre, Singapore 248649',
+    latitude: 1.282190,
+    longitude: 103.852510
+  },
+  {
+    address: '481 Bukit Timah Rd, Singapore 259769',
+    latitude: 1.322790,
+    longitude: 103.815150
+  },
+    {
+    address: '240 Sime Rd, Singapore 288303',
+    latitude: 1.34283705,
+    longitude: 103.80916124
+  },
+    {
+    address: '15 Science Centre Rd, Singapore 609081',
+    latitude: 1.3328377,
+    longitude: 103.73601896
+  },
+    {
+    address: '51 Chinese Cemetery Path 4, Singapore 698932',
+    latitude: 1.3773356,
+    longitude: 103.688141
+  },
+  {
+    address: '1 Turf Club Avenue Singapore Racecourse, Singapore 738078',
+    latitude: 1.4190866,
+    longitude: 103.7594086
+  }
+]
+
 10.times do
-  address_in_sg = ['Floor 33 @ Courtyard Marriott, 99, Irrawaddy Rd, Singapore 329568',
-                  '238 Thomson Rd, #02 - 49 / 50, Singapore 307683',
-                  '1 Cluny Rd, Singapore 259569',
-                  '1 Orchard Blvd, #01-01/02 Camden Medical Centre, Singapore 248649',
-                  '481 Bukit Timah Rd, Singapore 259769',
-                  '240 Sime Rd, Singapore 288303',
-                  '15 Science Centre Rd, Singapore 609081',
-                  '51 Chinese Cemetery Path 4, 698932',
-                  '1 Turf Club Avenue Singapore Racecourse, Singapore 738078']
+  property = address_in_sg.sample
   newproperty = Property.new(
     title: ["Entire Apt", "Studio Apt", "Condo"].sample + " at " + Faker::Address.street_name,
     description: Faker::Lorem.paragraphs(number: 1).first,
-    address: address_in_sg.sample,
+    address: property[:address],
     price: rand(50..200),
     capacity: rand(1..4),
+    latitude: property[:latitude],
+    longitude: property[:longitude]
   )
   newproperty.user = [owner1, owner2].sample
 

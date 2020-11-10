@@ -13,6 +13,7 @@
                 autofocus: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :avatar, as: :file %>
     <%= f.input :password_confirmation,
                 label: "Confirm your new password",
                 required: true,
