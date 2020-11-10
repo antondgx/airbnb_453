@@ -14,6 +14,13 @@ class Property < ApplicationRecord
   validates :capacity, presence: true
   validates :user_id, presence: true
 
+  include PgSearch::Model
+  pg_search_scope :search_by_title_description_and_address,
+    against: [:title, :description, :address],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
   def unavailable_dates
     bookings.pluck(:start_date, :end_date).map do |range|
       { from: range[0], to: range[1] }

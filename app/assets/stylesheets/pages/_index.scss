@@ -41,7 +41,18 @@ body {
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   position: relative;
+  margin-bottom: 0;
   bottom: 30px;
+}
+
+.banner form {
+  display: flex;
+  padding-bottom: 32px;
+  width: 300px;
+}
+
+.banner .btn {
+  opacity: 1;
 }
 
 
