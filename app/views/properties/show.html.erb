@@ -74,28 +74,35 @@
 
 <hr>
 
-<div class="container d-flex">
+<div class="container d-flex pb-5">
+
 
   <div class="card-review">
     <h3> Reviews </h3>
-    <% @property.reviews.each do |review| %>
-      <h5> <%= review.user.username %> </h5>
-      <% colored = review.rating %>
-      <% transparent = 5 - review.rating %>
-      <% colored.times { "<i class='far fa-star'></i>" } %>
-      <% transaparent.times { "<i class='far fa-star'></i>" } %>
-      <i class="far fa-star"></i>
-      <i class="fas fa-star"></i>
 
+      <% @property.reviews.each do |review| %>
+        <div class="card-product card-product-width">
+          <div class="card-product-infos">
+            <h5> <%= review.user.username %> </h5>
+            <% colored = review.rating %>
+            <% transparent = 5 - colored %>
+            <% colored.times do %>
+              <i class='fas fa-star'></i>
+            <% end %>
+            <% transparent.times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+            <p> <%= review.content %> </p>
+            <hr>
 
+          </div>
+        </div>
+      <% end %>
 
-
-       <p> <%= review.content %> </p>
-       <hr>
-    <% end %>
   </div>
 
   <div id="map"
+           class="mb-3"
            data-markers="<%= @markers.to_json %>"
            style="width: 500px;"
            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
