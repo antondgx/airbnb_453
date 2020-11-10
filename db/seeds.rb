@@ -121,6 +121,10 @@ address_in_sg = [
   )
   newproperty.user = [owner1, owner2].sample
 
+
+
+
+
   sampleimages = [
     "https://images.adsttc.com/media/images/5ecd/d4ac/b357/65c6/7300/009d/medium_jpg/02C.jpg?1590547607",
     "https://a0.muscache.com/im/pictures/c34e2dff-8e29-4567-a65d-0ac02d97545b.jpg?im_w=1200",
@@ -136,6 +140,23 @@ address_in_sg = [
   newproperty.save
   puts "Created #{newproperty.title}"
 
+  # Add reviews
+  user_id_array = []
+  User.all.each do |user|
+    user_id_array << user.id
+  end
+
+  add_review = rand(2..6).times do
+    review = Review.new(
+      rating: rand(1..5),
+      content: Faker::Lorem.paragraphs(number: 1).first,
+      user_id: user_id_array.sample
+      )
+    review.property = newproperty
+    review.save
+  end
+
+  # Add bookings
   start_date = Date.today+rand(10..100)
   end_date = start_date + rand(10..20)
 
