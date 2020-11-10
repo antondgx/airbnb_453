@@ -9,7 +9,6 @@ class PropertiesController < ApplicationController
       @properties = policy_scope(Property).search_by_title_description_and_address(params[:query])
     else
       @properties = policy_scope(Property).order(created_at: :desc)
-      raise
     end
 
     @markers = @properties.map do |property|
