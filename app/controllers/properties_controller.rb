@@ -4,7 +4,13 @@ class PropertiesController < ApplicationController
 
   def index
     # @properties = Property.all
-    @properties = policy_scope(Property).order(created_at: :desc)
+    # @properties = policy_scope(Property).order(created_at: :desc)
+    if params[:query].present?
+      @properties = policy_scope(Property).search_by_title_description_and_address(params[:query])
+    else
+      @properties = policy_scope(Property).order(created_at: :desc)
+    end
+
     @markers = @properties.map do |property|
       {
         lat: property.latitude,
