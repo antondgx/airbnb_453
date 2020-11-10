@@ -1,24 +1,17 @@
-<h1> All Apartment listings </h1>
-
-<hr>
-
-<h4> <%= link_to  "Create new apartment", new_property_path %> </h4>
-
-<hr>
-
 <div class="banner">
   <div class="container">
     <h1>Looking for an experience</h1>
     <p>Change your life and experience local life</p>
-
   </div>
 </div>
 
-<div class="title-card ">
-  <h4> <%= link_to  "Create new", new_property_path, class: 'btn btn-secondary' %> </h4>
+<div class="container">
+  <div class=" title-card ">
+    <h4> <%= link_to  "Create new", new_property_path, class: 'btn btn-secondary' %> </h4>
+  </div>
 </div>
 
-<div class="cards-container d-flex">
+<div class="container d-flex">
   <div class="cards">
       <% @properties.each do |property| %>
         <% property.photos.each do |photo|  %>
@@ -35,10 +28,10 @@
         </div>
         <% end %>
       <% end %>
-
   </div>
+
   <div id="map"
-    style="width: 100%; height: 600px;"
+    style="width: 100%;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
