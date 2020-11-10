@@ -79,7 +79,17 @@
   <div class="card-review">
     <h3> Reviews </h3>
     <% @property.reviews.each do |review| %>
-       <h5> <%= review.user.username %> </h5>
+      <h5> <%= review.user.username %> </h5>
+      <% colored = review.rating %>
+      <% transparent = 5 - review.rating %>
+      <% colored.times { "<i class='far fa-star'></i>" } %>
+      <% transaparent.times { "<i class='far fa-star'></i>" } %>
+      <i class="far fa-star"></i>
+      <i class="fas fa-star"></i>
+
+
+
+
        <p> <%= review.content %> </p>
        <hr>
     <% end %>
