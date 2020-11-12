@@ -15,7 +15,9 @@
 
 <div class="container">
   <div class=" title-card ">
-    <h4> <%= link_to  "Create new", new_property_path, class: 'btn btn-secondary' %> </h4>
+    <% if user_signed_in? %>
+      <h4> <%= link_to  "Create new", new_property_path, class: 'btn btn-secondary' %> </h4>
+    <% end %>
   </div>
 </div>
 
