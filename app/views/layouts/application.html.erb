@@ -15,20 +15,20 @@
 
 <body>
 
-  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
 
-    <%= link_to root_path, class: 'navbar-brand' do %>
-      <%= image_tag "Airbnb-logo.png", width: 50 %>
-    <% end %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <%= link_to root_path, class: 'navbar-brand' do %>
+        <%= image_tag "Airbnb-logo.png", width: 50 %>
+      <% end %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <div>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
             <% if user_signed_in? %>
               <%= current_user.username %>
             <% else %>
@@ -55,29 +55,29 @@
               <% end %>
             </div>
           </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div id="wrapper">
+      <%= yield %>
+    </div>
+
+
+    <div class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
         </div>
-      </ul>
-    </div>
-  </div>
-
-  <div>
-    <%= yield %>
-  </div>
-
-
-  <div class="footer">
-    <div class="container">
-      <div class="footer-links">
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-      </div>
-      <div class="footer-copyright">
-        @2020 Airbnb <i class="fas fa-heart"></i> by Le Wagon SG 453 Batch
+        <div class="footer-copyright">
+          @2020 Airbnb <i class="fas fa-heart"></i> by Le Wagon SG 453 Batch
+        </div>
       </div>
     </div>
-  </div>
 </body>
 </html>
