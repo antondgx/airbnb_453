@@ -17,6 +17,8 @@
   <div class=" title-card ">
     <% if user_signed_in? %>
       <h4> <%= link_to  "Create new", new_property_path, class: 'btn btn-secondary' %> </h4>
+    <% else %>
+      <h4> <%= link_to  "Create new", new_user_session_path, class: 'btn btn-secondary' %> </h4>
     <% end %>
   </div>
 </div>
