@@ -19,8 +19,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:avatar])
-    devise_parameter_sanitizer.permit(account_update: [:password, :password_confirmation, :current_password, :avatar])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:usernane, :avatar])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:password, :password_confirmation, :current_password, :avatar])
   end
 
   private
@@ -29,10 +29,10 @@ class ApplicationController < ActionController::Base
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 
-  
-  protected
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
-  end
+  # protected
+
+  # def configure_permitted_parameters
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+  # end
 end

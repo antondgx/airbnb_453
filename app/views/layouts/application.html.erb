@@ -35,13 +35,9 @@
         <li class="nav-item active">
         </li>
         <li class="nav-item dropdown">
-            <% if user_signed_in? %>
-              <% if current_user.avatar.attached? %>
-                <%= image_tag current_user.avatar, class: 'avatar dropdown-toggle',
-                id: "navbarDropdown", "data-toggle": "dropdown",  "aria-haspopup": true, "aria-expanded": false %>
-              <% else %>
-                <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://res.cloudinary.com/dowupfbnq/image/upload/v1604735390/istockphoto-1223671392-612x612_dyrhd5.jpg" />
-              <%end %>
+          <% if user_signed_in? && current_user.avatar.attached? %>
+            <%= image_tag current_user.avatar, class: 'avatar dropdown-toggle',
+            id: "navbarDropdown", "data-toggle": "dropdown",  "aria-haspopup": true, "aria-expanded": false %>
           <% else %>
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://res.cloudinary.com/dowupfbnq/image/upload/v1604735390/istockphoto-1223671392-612x612_dyrhd5.jpg" />
           <% end %>
