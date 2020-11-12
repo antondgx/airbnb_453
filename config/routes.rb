@@ -8,6 +8,11 @@ Rails.application.routes.draw do
     resources :reviews
   end
   resources :bookings, only:[:destroy]
+  resources :orders, only: [:show, :create] do 
+      resources :payments, only: :new
+  end
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
   
 
   get "/bookings", to: "bookings#my_bookings", as: :my_bookings

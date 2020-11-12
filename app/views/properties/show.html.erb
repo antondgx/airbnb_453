@@ -36,7 +36,7 @@
           <h3> <%= @property.title %> </h3>
           <p> Description: <%= @property.description %> </p>
           <p> Address: <%= @property.address %> </p>
-          <p> Price: <%= @property.price %> </p>
+          <p> Price: <%= humanized_money_with_symbol(@property.price) %> </p>
           <p> Capacity: <%= @property.capacity %> </p>
         </div>
         <div class="card-property-details-footer">
@@ -75,7 +75,6 @@
 <hr>
 
 <div class="container d-flex">
-
   <div class="card-review">
     <h3> Reviews </h3>
     <% @property.reviews.each do |review| %>

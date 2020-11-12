@@ -30,7 +30,7 @@
             <h5 class="card-description"> <%= property.description %></h5>
             <p class="card-location">Location: <%= property.address %> </p>
             <p class="card-capacity">Capacity: <%= property.capacity %></p>
-            <p class="card-price"> <strong><%= property.price %></strong> SGD / night</p>
+            <p class="card-price"> <strong><%= humanized_money_with_symbol(property.price) %></strong> SGD / night</p>
             <%= link_to "Book", property_path(property), class: 'btn btn-secondary'%></a>
           </div>
         </div>
