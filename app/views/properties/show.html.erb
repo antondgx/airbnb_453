@@ -36,7 +36,7 @@
           <h3> <%= @property.title %> </h3>
           <p> Description: <%= @property.description %> </p>
           <p> Address: <%= @property.address %> </p>
-          <p> Price: <%= @property.price %> </p>
+          <p> Price: <%= humanized_money_with_symbol(@property.price) %> </p>
           <p> Capacity: <%= @property.capacity %> </p>
         </div>
         <div class="card-property-details-footer">
@@ -74,9 +74,9 @@
 
 <hr>
 
+
+
 <div class="container d-flex pb-5">
-
-
   <div class="card-review">
     <h3> Reviews </h3>
 
@@ -105,5 +105,6 @@
            style="width: 500px;"
            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+
 
 </div>

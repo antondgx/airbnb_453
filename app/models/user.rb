@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :properties
   has_many :bookings
   has_one_attached :avatar
+  has_many :orders
 
   validates :username, presence: true
 

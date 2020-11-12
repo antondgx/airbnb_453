@@ -19,6 +19,13 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:usernane, :avatar])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:password, :password_confirmation, :current_password, :avatar])
+  end
+
   private
 
   def skip_pundit?
