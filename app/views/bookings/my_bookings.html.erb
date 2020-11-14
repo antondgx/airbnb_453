@@ -1,23 +1,72 @@
 <div class="container">
 
-  <h2> My bookings </h2>
-  <%= link_to "Back to listings" , properties_path %>
+<!--     <h2> My bookings </h2>
+    <%= link_to "Back to listings" , properties_path %>
 
-  <hr>
-
-  <% @bookings.each do |booking| %>
-    <h3> <%= booking.property.title %> </h3>
-    <p> From <%= booking.start_date %> to <%= booking.end_date %> </p>
-    <p> Price: <%= booking.price %> </p>
-    <p> Owner: <%= booking.property.user.username %> </p>
-    <%= link_to "Delete", booking_path(booking), method: "delete", data:{confirm: "Are you sure?"}  %>
-    <%= form_tag orders_path do %>
-      <%= hidden_field_tag 'property_id', booking.property.id %>
-      <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-    <% end %>
     <hr>
-  <% end %>
+
+    <% @bookings.each do |booking| %>
+      <h3> <%= booking.property.title %> </h3>
+      <p> From <%= booking.start_date %> to <%= booking.end_date %> </p>
+      <p> Price: <%= booking.price %> </p>
+      <p> Owner: <%= booking.property.user.username %> </p>
+      <%= link_to "Delete", booking_path(booking), method: "delete", data:{confirm: "Are you sure?"}  %>
+      <%= form_tag orders_path do %>
+        <%= hidden_field_tag 'property_id', booking.property.id %>
+        <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+      <% end %>
+      <hr>
+    <% end %> -->
+<!--
+  <div class="container d-flex pb-5">
+    <div class="card-review">
+      <h2> My bookings </h2>
+      <%= link_to "Back to listings" , properties_path %>
+
+        <% @bookings.each do |booking| %>
+          <div class="card-product card-product-width">
+            <div class="card-product-infos">
+              <h3> <%= booking.property.title %> </h3>
+              <p> From <%= booking.start_date %> to <%= booking.end_date %> </p>
+              <p> Price: <%= booking.price %> </p>
+              <p> Owner: <%= booking.property.user.username %> </p>
+              <%= link_to "Delete", booking_path(booking), method: "delete", data:{confirm: "Are you sure?"}  %>
+              <%= form_tag orders_path do %>
+                <%= hidden_field_tag 'property_id', booking.property.id %>
+                <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+              <% end %>
+              <hr>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  </div> -->
+
+  <div class="container d-flex">
+    <div class="cards">
+      <h2 class="ml-3 "> My bookings </h2>
+      <%= link_to "Back to listings" , properties_path, class: 'ml-3' %>
+        <% @bookings.each do |booking| %>
+          <% booking.property.photos.each do |photo|  %>
+          <div class="card-product">
+            <%= cl_image_tag photo.key, class: "card-img-top" %>
+            <div class="card-product-infos card-booking">
+              <h3> <%= booking.property.title %> </h3>
+              <h5 class="card-description"> <p> From <%= booking.start_date %> to <%= booking.end_date %> </p></h5>
+              <p class="card-capacity"><p> Owner: <%= booking.property.user.username %> </p>
+              <p class="card-price"> <p> Price: <strong><%= humanized_money_with_symbol(booking.price) %></strong> </p>
+              <div class="d-flex justify-content-between">
+                <%= link_to "Delete", booking_path(booking), method: "delete", data:{confirm: "Are you sure?"}, class: 'btn btn-outline-secondary delete' %>
+                <%= form_tag orders_path do %>
+                  <%= hidden_field_tag 'property_id', booking.property.id %>
+                  <%= submit_tag 'Purchase', class: 'btn btn-secondary' %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
 
 </div>
-
-    
