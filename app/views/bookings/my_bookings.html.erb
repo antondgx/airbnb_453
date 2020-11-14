@@ -10,6 +10,7 @@
     <p> From <%= booking.start_date %> to <%= booking.end_date %> </p>
     <p> Price: <%= booking.price %> </p>
     <p> Owner: <%= booking.property.user.username %> </p>
+    <p> Booking Status: <%=%>
     <%= link_to "Delete", booking_path(booking), method: "delete", data:{confirm: "Are you sure?"}  %>
     <%= form_tag orders_path do %>
       <%= hidden_field_tag 'property_id', booking.property.id %>
