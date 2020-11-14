@@ -3,17 +3,11 @@ class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @properties = Property.all
-    # @properties = policy_scope(Property).order(created_at: :desc)
     if params[:query].present?
       @properties = policy_scope(Property).search_by_title_description_and_address(params[:query])
     else
       @properties = policy_scope(Property).order(created_at: :desc)
     end
-
-    # @properties = Property.all
-
-    # raise
 
     @markers = @properties.map do |property|
       {
@@ -39,6 +33,9 @@ class PropertiesController < ApplicationController
     @property = Property.new(property_params)
     @user = User.find(current_user.id)
     @property.user = @user
+    unless @property.photos.attached?
+      @property.photos.attach("placeholder.png")
+    end
     authorize @property
 
     if @property.save
