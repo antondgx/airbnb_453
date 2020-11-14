@@ -26,9 +26,12 @@
 <div class="container d-flex">
   <div class="cards">
       <% @properties.each do |property| %>
-        <% property.photos.each do |photo|  %>
         <div class="card-product">
-          <%= cl_image_tag photo.key, class: "card-img-top" %>
+          <% if property.photos.attached? %>
+            <%= cl_image_tag property.photos.first.key, class: "card-img-top" %>
+          <% else %>
+            <%= image_tag "placeholder.png", class: "card-img-top" %>
+          <% end %>
           <div class="card-product-infos">
             <h4> <%= property.title %> </h4>
             <h5 class="card-description"> <%= property.description %></h5>
@@ -38,7 +41,6 @@
             <%= link_to "Book", property_path(property), class: 'btn btn-secondary'%></a>
           </div>
         </div>
-        <% end %>
       <% end %>
   </div>
 

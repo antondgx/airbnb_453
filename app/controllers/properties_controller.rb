@@ -11,7 +11,9 @@ class PropertiesController < ApplicationController
       @properties = policy_scope(Property).order(created_at: :desc)
     end
 
-    @properties = Property.all
+    # @properties = Property.all
+
+    # raise
 
     @markers = @properties.map do |property|
       {

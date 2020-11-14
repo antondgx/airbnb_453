@@ -3,7 +3,7 @@ class Property < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
-  has_many_attached :photos
+  has_many_attached :photos, dependent: :destroy
   belongs_to :user
   has_many :bookings, dependent: :destroy
   has_many :reviews, dependent: :destroy
@@ -11,7 +11,7 @@ class Property < ApplicationRecord
   validates :title, presence: true, uniqueness: true
   validates :description, presence: true
   validates :address, presence: true
-  #validates :price, presence: true, numericality: { only_integer: true }
+  # validates :price, presence: true, numericality: { only_integer: true }
   validates :capacity, presence: true
   validates :user_id, presence: true
 
