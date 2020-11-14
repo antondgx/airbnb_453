@@ -1,6 +1,6 @@
 .card-property-book {
-  height: 350px;
-  width: 500px;
+  height: 450px;
+  width: 400px;
   background: $light-gray;
   padding: 16px;
 }
@@ -26,7 +26,6 @@
 
 .card-property-book input {
   border: none;
-
   opacity: 0.9;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   padding: 8px;
@@ -34,6 +33,7 @@
   right: 16px;
   left: 16px;
   border-radius: 4px;
+  text-align: center;
 }
 
 

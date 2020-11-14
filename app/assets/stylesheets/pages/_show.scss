@@ -2,17 +2,17 @@
 @import "devise";
 
 
-#map {
+// #wrapper{
+//   min-height: calc(100vh - 132px);
+// }
+
+
+.map-show {
+  margin-top: 38px !important;
   position: sticky;
-  top: 78px;
-  height: 100vh;
-  margin-top: 38px;
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin-bottom: 10px;
 }
 
-.card-product-infos {
+.card-product-infos-show {
   height: 150px;
   width: 600px;
   background: white;
@@ -24,7 +24,7 @@
 
 }
 
-.card-review-show .card-product-infos p {
+.card-review-show .card-product-infos-show p {
   font-size: 14px;
   line-height: 1.4;
   opacity: .7;
@@ -32,19 +32,19 @@
   margin-top: 8px;
 }
 
-.card-review-show .card-product-infos {
+.card-review-show .card-product-infos-show {
   padding: 16px;
   flex-grow: 1;
   position: relative;
 }
 
-.card-review-show .card-product-infos h4 {
+.card-review-show .card-product-infos-show h4 {
   color: grey;
   font-size: 24px;
   text-align: left;
 }
 
-.card-product-infos h5 {
+.card-product-infos-show h5 {
   text-align: left;
 }
 
@@ -61,4 +61,8 @@
   color: grey;
   font-weight: bold;
   font-size: 16px;
+}
+
+.show-image {
+  border-radius: 5px;
 }

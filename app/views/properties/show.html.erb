@@ -1,4 +1,5 @@
-<div class="container">
+
+<div class="container d-flex">
   <!-- below is carousel image component from bootstrap => https://getbootstrap.com/docs/4.5/components/carousel/-->
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -14,7 +15,7 @@
         for this bootstrap component to work. See application.js where we add active to the first element -->
         <% @property.photos.each do |photo| %>
         <div class= "carousel-item">
-          <%= cl_image_tag photo.key, height: 450, crop: :fill, :class => "d-block w-100" %>
+          <%= cl_image_tag photo.key, height: 450, crop: :fill, :class => "d-block w-100 show-image"  %>
         </div>
         <% end %>
       </div>
@@ -29,17 +30,17 @@
       </a>
     </div>
 
-        <hr>
+
 
     <div class="container d-flex">
       <div class="card-property">
         <div class="card-property-details">
           <div class="card-property-details-main">
-            <h3> <%= @property.title %> </h3>
-            <p> Description: <%= @property.description %> </p>
-            <p> Address: <%= @property.address %> </p>
-            <p> Price: <%= humanized_money_with_symbol(@property.price) %> </p>
-            <p> Capacity: <%= @property.capacity %> </p>
+            <h4> <%= @property.title %> </h4>
+            <h5 class="card-description"> <%= @property.description %></h5>
+            <p class="card-location">Location: <%= @property.address %> </p>
+            <p class="card-capacity">Capacity: <%= @property.capacity %></p>
+            <p class="card-price"> <strong><%= humanized_money_with_symbol(@property.price) %></strong> USD / night</p>
           </div>
           <div class="card-property-details-footer">
             <ul>
@@ -81,7 +82,7 @@
       <h3>Reviews</h3>
      </div>
     <% @property.reviews.each do |review| %>
-    <div class="card-product-infos">
+    <div class="card-product-infos-show">
       <h5> <%= review.user.username %> </h5>
       <% colored = review.rating %>
       <% transparent = 5 - colored %>
@@ -95,7 +96,7 @@
     </div>
   <% end %>
   </div>
-  <div id="map"
+  <div id="map" class="map-show"
     style="width: 100%;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
