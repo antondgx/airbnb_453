@@ -32,15 +32,15 @@
 
 
 
-    <div class="container d-flex">
+    <div class="d-flex ml-3">
       <div class="card-property">
         <div class="card-property-details">
           <div class="card-property-details-main">
             <h4> <%= @property.title %> </h4>
-            <h5 class="card-description"> <%= @property.description %></h5>
-            <p class="card-location">Location: <%= @property.address %> </p>
-            <p class="card-capacity">Capacity: <%= @property.capacity %></p>
-            <p class="card-price"> <strong><%= humanized_money_with_symbol(@property.price) %></strong> USD / night</p>
+            <h5 class="card-description-show"> <%= @property.description %></h5>
+            <p class="card-location-show">Location: <%= @property.address %> </p>
+            <p class="card-capacity-show">Capacity: <%= @property.capacity %></p>
+            <p class="card-price-show"> <strong><%= humanized_money_with_symbol(@property.price) %></strong> USD / night</p>
           </div>
           <div class="card-property-details-footer">
             <ul>
@@ -60,7 +60,7 @@
         </div>
 
         <div class="card-property-book">
-          <h4> Book! </h4>
+          <h4> Book </h4>
           <div id='flat-booking-dates' data-unavailable="<%= @property.unavailable_dates.to_json %>">
             <%= simple_form_for [@property, @booking ] do |f| %>
             <%= f.input :start_date, as: :string, type: :text %>
