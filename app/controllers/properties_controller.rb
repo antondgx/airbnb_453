@@ -3,15 +3,11 @@ class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @properties = Property.all
-    # @properties = policy_scope(Property).order(created_at: :desc)
     if params[:query].present?
       @properties = policy_scope(Property).search_by_title_description_and_address(params[:query])
     else
       @properties = policy_scope(Property).order(created_at: :desc)
     end
-
-    @properties = Property.all
 
     @markers = @properties.map do |property|
       {
