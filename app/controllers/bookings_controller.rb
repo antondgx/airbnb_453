@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to my_bookings_path
     else
-      render :new
+      redirect_to property_path(@property)
     end
 
     authorize @booking
@@ -40,8 +40,10 @@ class BookingsController < ApplicationController
   private
 
   def booking_price(booking, property)
-    duration = booking.end_date - booking.start_date
-    price = property.price * duration
+    if booking.end_date && booking.start_date
+      duration = booking.end_date - booking.start_date
+      price = property.price * duration
+    end
   end
 
   def booking_params
