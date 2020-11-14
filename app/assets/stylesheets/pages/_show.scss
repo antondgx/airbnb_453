@@ -1,13 +1,68 @@
 @import "home";
 @import "devise";
 
-// #map {
-//   width: 400px;
-//   height: 100vh;
-//   position: sticky;
-//   top: 0;
+
+// #wrapper{
+//   min-height: calc(100vh - 132px);
 // }
 
-.main-container {
-  display: flex;
+
+.map-show {
+  margin-top: 38px !important;
+  position: sticky;
+}
+
+.card-product-infos-show {
+  height: 150px;
+  width: 600px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  flex-grow: 2;
+  margin: 10px;
+  border-radius: 5px;
+
+}
+
+.card-review-show .card-product-infos-show p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-review-show .card-product-infos-show {
+  padding: 16px;
+  flex-grow: 1;
+  position: relative;
+}
+
+.card-review-show .card-product-infos-show h4 {
+  color: grey;
+  font-size: 24px;
+  text-align: left;
+}
+
+.card-product-infos-show h5 {
+  text-align: left;
+}
+
+.card-review-show {
+  align-items: center;
+}
+
+.section-title {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.section-title h3 {
+  color: grey;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.show-image {
+  border-radius: 5px;
 }
