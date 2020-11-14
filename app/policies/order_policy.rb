@@ -12,4 +12,8 @@ class OrderPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def destroy?
+    user && (user == record.user || user.admin)
+  end
 end

@@ -5,6 +5,7 @@
       <h1>Checkout summary</h1>
       <p>Purchase of <strong><%= @order.property.title %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
       <button id="pay" class="btn btn-primary">Pay</button>
+      <%= link_to  "Cancel", order_path(@order), method: "delete", class: "btn btn-danger" %>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         console.log("js scripting");

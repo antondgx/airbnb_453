@@ -25,4 +25,11 @@ class OrdersController < ApplicationController
    @order = current_user.orders.find(params[:id])
    authorize @order
   end
+
+  def destroy
+    @order = current_user.orders.find(params[:id])
+    authorize @order
+    redirect_to properties_path
+  end 
+  
 end
