@@ -35,6 +35,9 @@ class PropertiesController < ApplicationController
     @property = Property.new(property_params)
     @user = User.find(current_user.id)
     @property.user = @user
+    unless @property.photos.attached?
+      @property.photos.attach("placeholder.png")
+    end
     authorize @property
 
     if @property.save
