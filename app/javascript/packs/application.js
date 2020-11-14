@@ -47,10 +47,10 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   // add active to first element with .carousel-indicators li
   const firstIndicator = document.querySelector(".carousel-indicators li");
-  firstIndicator.classList.add("active");
+  if (firstIndicator) firstIndicator.classList.add("active");
 
 
   // add active to the first element with .carousel-item
   const firstImage = document.querySelector(".carousel-item");
-  firstImage.classList.add("active");
+  if (firstImage) firstImage.classList.add("active");
 });
